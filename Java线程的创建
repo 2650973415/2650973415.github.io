@@ -1,0 +1,401 @@
+
+<html>
+<head>
+<title>MarkdownPad Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>java线程的创建与启动</h1>
+<h3>创建线程</h3>
+<h5>第一种方式：</h5>
+<p>继承Thread ，由子类复写run方法。 </p>
+<p><strong>步骤：</strong></p>
+<pre><code>1.定义类继承Thread类； 
+2.目的是复写run方法，将要让线程运行的代码都存储到run方法中； 
+3.通过创建Thread类的子类对象，创建线程对象； 
+4.调用线程的start方法，开启线程，并执行run方法。 
+</code></pre>
+
+<h6>代码：</h6>
+<pre><code>/**
+ *Java程序的运行原理：
+ *    java命令启动java虚拟机，启动JVM。
+ *    等于启动了一个应用程序，表示启动了一个进程。
+ *    该进程会自动启动一个“主线程”，然后主线程去调用某个类的main方法。
+ *    所以main方法运行在主线程中。在此之前的所有程序都是单线程的。
+ *
+ *    主线程执行的代码都在main方法中。
+ *
+ *
+ *
+ * 在java语言中实现多线程的第一种方式：
+ *     第一步：继承java.lang.Thread;
+ *     第二步：重写run方法
+ */
+
+
+public class Test01 {
+    public static void main(String[] args) {
+        //创建线程
+        Thread t = new Thread_01();
+
+        //启动
+        t.start();//执行瞬间结束。告诉JVM再分配一个新的栈给t线程
+                  //run不需要程序员手动调用，系统线程启动之后自动调用run方法
+
+        //t.run();//这是普通方法调用，这样做程序只有一个线程，
+                  //run方法结束后，下面的程序才能继续执行。
+
+
+        //这段代码在主线程中运行
+        for(int i = 0;i&lt;10;i++){
+            System.out.println(&quot;main--&gt;&quot; + i);
+        }
+    }
+}
+//结论：有了多线程之后，main方法结束只是主线程栈中没有方法栈帧了。
+//      但是其他线程或者其他栈中还有栈帧。
+//
+//      main方法结束，程序可能还在运行。
+class Thread_01 extends Thread{
+    //重写run方法
+    public void run(){
+        for(int i=0;i&lt;30;i++){
+            System.out.println(&quot;run--&gt;&quot; + i);
+        }
+    }
+}
+</code></pre>
+
+<h5>第二种方式：实现一个接口Runnable。</h5>
+<p><strong>步骤：</strong></p>
+<pre><code>1.定义类实现Runnable接口。 
+2.覆盖接口中的run方法（用于封装线程要运行的代码）。 
+3.通过Thread类创建线程对象；
+4.将实现了Runnable接口的子类对象作为实际参数传递给Thread类中的构造函数。 
+为什么要传递呢？因为要让线程对象明确要运行的run方法所属的对象。 
+5.调用Thread对象的start方法。开启线程，并运行Runnable接口子类中的run方法。 
+</code></pre>
+
+<h6>代码：</h6>
+<pre><code>/**
+ * Java中实现线程的第二种方式：
+ *    第一步：写一个类实现java.lang.Runnable;接口
+ *    第二步：实现run方法。
+ */
+public class Test02 {
+    public static void main(String[] args) {
+        //创建线程
+        Thread t = new Thread(new Thread_01());
+        //启动线程
+        t.start();
+
+        for(int i = 0;i&lt;10;i++){
+            System.out.println(&quot;main--&gt;&quot; + i);
+        }
+    }
+
+}
+//推荐使用的，为什么？
+class Thread_02 implements Runnable{
+    public void run(){
+        for(int i = 0;i&lt;30;i++){
+            System.out.println(&quot;run--&gt;&quot; + i);
+        }
+    }
+}
+</code></pre>
+
+<h5>为什么要有Runnable接口的出现？</h5>
+<p>通过继承Thread类的方式，可以完成多线程的建立。但是这种方式有一个局限性，如果一个类已经有了自己的父类，就不可以继承Thread类，因为java单继承的局限性。</p>
+<p>实现Runnable接口可以避免单继承的局限性。</p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
