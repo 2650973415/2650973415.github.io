@@ -1,0 +1,391 @@
+<html>
+<head>
+<title>JavaIO</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+<base href='file:\\\C:\Users\zhao\Desktop\'/>
+</head>
+<body>
+<h2>Java 文件管理</h2>
+<h3>文件管理包括：</h3>
+<ol>
+<li>获取路径</li>
+<li>读取或设置文件的各种属性</li>
+<li>文件和目录操作</li>
+<li>目录遍历等</li>
+</ol>
+<p>java通过File类实现文件管理（不仅能对文件进行操作，还可以对目录进行操作）</p>
+<p><strong>Java.io.File</strong></p>
+<p><strong>File类：</strong></p>
+<pre><code>将文件系统中的文件和文件夹封装成了对象。
+提供了更多的属性和行为可以对这些文件和文件夹进行操作。
+这些是流对象办不到的，因为流只操作数据。 
+
+1. File类和流无关，不能通过该类完成文件的读和写，读写文件用流的知识！
+2. File是文件和目录路径的抽象表示形式
+</code></pre>
+
+<h4>File类常见方法：</h4>
+<h5>1. 创建。</h5>
+<pre><code>boolean createNewFile()：在指定目录下创建文件，如果该文件已存在，则不创建。
+
+注意:而对操作文件的输出流而言，输出流对象已建立，就会创建文件，如果文件已存在，会覆盖。
+     除非续写。 
+
+boolean mkdir()：创建此抽象路径名指定的目录。 
+boolean mkdirs()：创建多级目录。  
+</code></pre>
+
+<h5>2. 删除。</h5>
+<pre><code>boolean delete()：删除此抽象路径名表示的文件或目录。 
+void deleteOnExit()：在虚拟机退出时删除。 
+注意：在删除文件夹时，必须保证这个文件夹中没有任何内容，才可以将该文件夹用 delete删除。 
+ window的删除动作，是从里往外删。注意：java删除文件不走回收站。要慎用。 
+</code></pre>
+
+<h5>3. 获取.</h5>
+<pre><code>long length()：获取文件大小。 
+String getName()：返回由此抽象路径名表示的文件或目录的名称。 
+String getPath()：将此抽象路径名转换为一个路径名字符串。 
+String getAbsolutePath()：返回此抽象路径名的绝对路径名字符串。 
+String getParent()：返回此抽象路径名父目录的抽象路径名，如果此路径名没有指定父目录，则返回 null。 
+long lastModified()：返回此抽象路径名表示的文件最后一次被修改的时间。 
+File.pathSeparator()：返回当前系统默认的路径分隔符，windows 默认为 “；”。 
+File.Separator()：返回当前系统默认的目录分隔符，windows 默认为 “\”。 
+</code></pre>
+
+<h5>4. 判断：</h5>
+<pre><code>boolean exists()：判断文件或者文件夹是否存在。 
+boolean isDirectory()：测试此抽象路径名表示的文件是否是一个目录。 
+boolean isFile()：测试此抽象路径名表示的文件是否是一个标准文件。 
+boolean isHidden()：测试此抽象路径名指定的文件是否是一个隐藏文件。 
+boolean isAbsolute()：测试此抽象路径名是否为绝对路径名。 
+</code></pre>
+
+<h5>5. 重命名。</h5>
+<pre><code>boolean renameTo(File dest)：可以实现移动的效果。剪切+重命名。 
+
+String[] list()：列出指定目录下的当前的文件和文件夹的名称。包含隐藏文件。 
+
+如果调用list方法的File
+对象中封装的是一个文件，那么list方法返回数组为null。
+如果封装的对象不存在也会返回null。
+只有封装的对象存在并且是文件夹时，这个方法才有效。 
+</code></pre>
+
+<hr />
+<h1>Java IO</h1>
+<h3>流：</h3>
+<p>输入输出处理是程序设计中的
+非常主要的一部分，
+例如：从键盘上读取数据、从文件中读取数据或向文件中写数据等</p>
+<p>Java把不同类型的输入输出源抽象为流（stream），从统一的接口来表示。</p>
+<p>Java.io包包括一系列的类来实现输入输出。</p>
+<p><img src="http://opoh7f0qc.bkt.clouddn.com/JavaIO.jpg" alt="image" /></p>
+<h3>什么是流：</h3>
+<p>流是一个抽象的概念。
+当Java程序需要从数据源读取数据时，会开启一个到数据源的流。数据源可以是文件，内存或者网络等。
+当程序需要输出数据到目的地时也一样会开启一个流，数据目的地也可以是文件、内存或者网络等。
+留得创建是为了更方便的处理数据的输入输出。</p>
+<h5>流根据方向可以分为：</h5>
+<p>==输入流==（InputStream）</p>
+<p>==输出流==（OutputStream）</p>
+<p>输入和输出是相对于内存而言的。</p>
+<p>从内存出来就是输出，到内存中就是输入。</p>
+<h5>流读取数据的方式可以分为：</h5>
+<p>==字节流==：按照字节的方式读取，适合读取视频，声音，图片等二进制文件。</p>
+<p>==字符流==：按照字符的方式读取，一次读取2个字节，纯文本文件。
+（java语言中一个字符占2个字节）。</p>
+<p>所有的字节流都以Stream结尾，所有的字符流都含有Reader或Writer</p>
+<p>字节流：处理字节数据的流对象。设备上的数据无论是图片或者 dvd，文字，它们都以二进制 存储的。二进制的最终都是以一个 8 位为数据单元进行体现，所以计算机中的最小数据单元就 是字节。意味着，==字节流可以处理设备上的所有数据，所以字节流一样可以处理字符数据==。 </p>
+<h4>那么为什么要有字符流呢？</h4>
+<p>因为字符每个国家都不一样，所以涉及到了字符编码问题，那么 GBK 编码的中文用 unicode 编码解析是有问题的，所以需要获取中文字节数据的同时+ 指定的 编码表才可以解析正确数据。为了方便于文字的解析，所以将字节流和编码表封装成对象，这 个对象就是字符流。只要操作字符数据，优先考虑使用字符流体系。 </p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
