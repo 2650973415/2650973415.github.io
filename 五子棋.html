@@ -1,0 +1,303 @@
+
+
+<html>
+ <head>
+ <title>五子棋</title>
+  <style>
+  #box{
+	width:1001px; 
+	height:1001px;
+	margin:100px auto;
+	position:relative;
+}
+/* 棋盘 */
+#qipan{
+	width:1001px; 
+	height:1001px;  
+	background:#f71;
+	position:absolute;
+	border:10px solid #f71;
+}
+/* 线条 */
+.hang{
+	background:#000;
+	width:100%;
+	height:1px;
+	position:absolute;
+	left:0;
+	top:0;
+}
+.lie{
+	background:#000;
+	width:1px;
+	height:1080px;
+	position:absolute;
+	left:0;
+	top:0;
+}
+/* 点击 */
+#dj{
+	width:100%;
+	height:100%;
+	position:relative;
+	left:10px;
+	top:10px;
+}
+/* 棋子 */
+.hqz{ 
+	height:40px; 
+	width:40px; 
+	border-radius:100%; 
+	background-image:url(http://opoh7f0qc.bkt.clouddn.com/hq.png);
+	position:absolute; 
+	left:-20px; 
+	top:-20px;
+}
+.bqz{ 
+	height:40px; 
+	width:40px; 
+	background-image:url(http://opoh7f0qc.bkt.clouddn.com/bq.png); 
+	position:absolute; 
+	left:-20px; 
+	top:-20px;
+}
+/* 按钮 */
+#qingkong{
+	
+}
+  </style>
+  <script>
+	var q=0;
+var sheng=0;
+var shuzu=new Array();
+function c_shuzu(h,k,m){
+	this.h=h;
+	this.k=k;
+	this.m=m;
+}
+//棋盘线条
+function qi(){
+	for (var a=0;a<=20;a++ ){
+		var b=document.createElement('div');
+		b.className='hang';
+		b.style.top=a*50+'px';
+		b.style.width='100%';
+		document.getElementById('qipan').appendChild(b);
+		var c=document.createElement('div');
+		c.className='lie';
+		c.style.left=a*50+'px';
+		c.style.height='100%';
+		document.getElementById('qipan').appendChild(c);
+	}
+}
+//添加棋子
+function qz(){
+	if(sheng==1){
+		return;
+	}
+	var cqz=document.createElement('div');
+	var x=window.event.offsetX;
+	var y=window.event.offsetY;
+	if(x%50>=25){
+		x=x+50-x%50-20;
+	}
+	else{
+		x=x-x%50-20;
+	}
+	if(y%50>=25){
+		y=y+50-y%50-20;
+	}
+	else{
+		y=y-y%50-20;
+	}
+	//已有棋子
+	var ii=0;
+	for(var i=0;i<shuzu.length;i++){
+		if(shuzu[i].h==x&&shuzu[i].k==y){
+			ii=1;
+			break;
+		}
+	}
+	if(ii!=0){
+		//alert("已有");
+		return;
+	}
+	//把棋子添加到数组
+	var ch=new c_shuzu(x,y,q);
+	shuzu.push(ch);
+	//
+	if(q==0){
+		cqz.className="hqz";
+		q=1;
+	}
+	else{
+		cqz.className="bqz";
+		q=0;
+	}
+	cqz.style.left=x+"px";
+	cqz.style.top=y+"px";
+	//点击妻子不派发事件
+	cqz.onclick=function(e)
+	{
+		if(e&&e.stopPropagation)
+		{
+			e.stopPropagation(e);	
+		}
+		else
+		{
+			window.event.cancelBubble=true;
+		}	
+	}
+	//判断输赢结果
+	document.getElementById("dj").appendChild(cqz);
+	if(heng(x,y,ch.m)||shu(x,y,ch.m)||zuoxie(x,y,ch.m)||youxie(x,y,ch.m)){
+		if(ch.m==0){
+			alert("黑棋胜出！");
+			sheng=1;
+		}
+		else{
+			alert("白棋胜出！");
+			sheng=1;
+		}
+	}
+}
+//查找棋子
+function zhaoqizi(x,y,color){
+	for(var z=1;z<shuzu.length;z++){
+		if(shuzu[z].h==x&&shuzu[z].k==y&&shuzu[z].m==color){
+			return true;
+		}
+	}
+	return false;
+}
+//判断横；
+function heng(x,y,color){
+	var sum=0;
+	for(var z=1;z<=4;z++){
+		if(zhaoqizi(x-50*z,y,color)){
+			sum++;
+		}
+		else{
+			break;
+		}
+	}
+	for(var z=1;z<=4;z++){
+		if(zhaoqizi(x+50*z,y,color)){
+			sum++;
+		}
+		else{
+			break;
+		}
+	}
+	if(sum>=4){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+//判读竖；
+function shu(x,y,color){
+	var sum=0;
+	for(var z=1;z<=4;z++){
+		if(zhaoqizi(x,y-50*z,color)){
+			sum++;
+		}
+		else{
+			break;
+		}
+	}
+	for(var z=1;z<=4;z++){
+		if(zhaoqizi(x,y+50*z,color)){
+			sum++;
+		}
+		else{
+			break;
+		}
+	}
+	if(sum>=4){
+		return true;
+	}
+	else{
+		return false;
+	}
+
+}
+//判断左斜；
+function zuoxie(x,y,color){
+	var sum=0;
+	for(var z=1;z<=4;z++){
+		if(zhaoqizi(x-50*z,y-50*z,color)){
+			sum++;
+		}
+		else{
+			break;
+		}
+	}
+	for(var z=1;z<=4;z++){
+		if(zhaoqizi(x+50*z,y+50*z,color)){
+			sum++;
+		}
+		else{
+			break;
+		}
+	}
+	if(sum>=4){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+//判断右斜；
+function youxie(x,y,color){
+	var sum=0;
+	for(var z=1;z<=4;z++){
+		if(zhaoqizi(x+50*z,y-50*z,color)){
+			sum++;
+		}
+		else{
+			break;
+		}
+	}
+	for(var z=1;z<=4;z++){
+		if(zhaoqizi(x-50*z,y+50*z,color)){
+			sum++;
+		}
+		else{
+			break;
+		}
+	}
+	if(sum>=4){
+		return true;
+	}
+	else{
+		return false;
+	}
+}
+//重新开始
+function qingkong(){
+	shuzu.splice(0,shuzu.length);//清空数组
+	document.getElementById('qipan').innerHTML='';//清空棋盘线条
+	document.getElementById('dj').innerHTML='';//清空棋子
+	q=0;//重置第一颗棋子为黑棋子
+	qi();//重新画线条
+	sheng=0;
+}
+//悔棋
+function huiqi(){
+	shuzu.splice(shuzu.length-1,shuzu.length);
+	document.getElementById("dj").removeChild(document.getElementById('dj').lastchild);
+}
+  </script>
+  <title>Document</title>
+ </head>
+ <body onload="qi()">
+	<div id="box">
+		<input id="qingkong" type="button" value="重新开始" onclick="qingkong()"/>
+		<input id="huiqi" type="button" value="悔棋" onclick="huiqi()"/>
+		<div id="qipan"></div>
+		<div id="dj" onclick="qz()"></div>
+	</div>
+ </body>
+</html>
