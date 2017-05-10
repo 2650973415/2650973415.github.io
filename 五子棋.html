@@ -284,18 +284,13 @@ function qingkong(){
 	qi();//重新画线条
 	sheng=0;
 }
-//悔棋
-function huiqi(){
-	shuzu.splice(shuzu.length-1,shuzu.length);
-	document.getElementById("dj").removeChild(document.getElementById('dj').lastchild);
-}
+
   </script>
   <title>Document</title>
  </head>
  <body onload="qi()">
 	<div id="box">
 		<input id="qingkong" type="button" value="重新开始" onclick="qingkong()"/>
-		<input id="huiqi" type="button" value="悔棋" onclick="huiqi()"/>
 		<div id="qipan"></div>
 		<div id="dj" onclick="qz()"></div>
 	</div>
