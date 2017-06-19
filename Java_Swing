@@ -1,0 +1,479 @@
+<!DOCTYPE html
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<title>Java Swing</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<h1>Java Swing（GUI）</h1>
+<ul>
+<li>
+<p><strong>什么是GUI</strong></p>
+<p>GUI---<strong>G</strong>raphic <strong>U</strong>ser <strong>I</strong>nterface 图形用户界面</p>
+<p>Swing 是 Java 平台的 UI —— 它充当处理用户和计算机之间全部交互的软件。它实际上充
+当用户和计算机内部之间的中间人。</p>
+<p>Swing组件是Java语言提供的第二代GUI设计工具包它以AWT为基础在AWT内容的基础上新增或改进了一些GUI组件使得GUI程序功能更强大设计更容易、更方便。&quot;Swing&quot;是开发新组件的项目代码名，现在这个名字常用来引用新组件和相关的API.</p>
+</li>
+<li>
+<p><strong>第一个有界面的java程序</strong></p>
+</li>
+</ul>
+<blockquote>
+<pre><code>import javax.swing.JButton;
+import javax.swing.JFrame;
+
+public class TestGUI {
+    public static void main(String[] args) {
+        // 主窗体
+        JFrame f = new JFrame(&quot;GUI&quot;);
+        // 主窗体设置大小
+        f.setSize(400, 300);
+        // 主窗体设置位置
+        f.setLocation(200, 200);
+        // 主窗体中的组件设置为绝对定位
+        f.setLayout(null);
+        // 按钮组件
+        JButton b = new JButton(&quot;确定&quot;);
+        // 同时设置组件的大小和位置
+        b.setBounds(50, 50, 280, 30);
+        // 把按钮加入到主窗体中
+        f.add(b);
+        // 关闭窗体的时候，退出程序
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        // 让窗体变得可见
+        f.setVisible(true);
+    }
+}
+</code></pre>
+
+</blockquote>
+<h3>事件：</h3>
+<ul>
+<li>
+<p><strong>什么是事件</strong></p>
+<p>用户用于交互而产生的键盘或鼠标动作.</p>
+<p>响应用户的动作称为处理事件.</p>
+</li>
+<li>
+<p><strong>JAVA事件的委托机制与处理机制</strong></p>
+<p>不在详解，如图所示：</p>
+<p><img src="http://opoh7f0qc.bkt.clouddn.com/javaSwing.jpeg" alt="image" /></p>
+</li>
+<li>
+<p><strong>事件的产生</strong></p>
+<p>鼠标事件的事件源往往与容器相关，当鼠标进入容器、离开容器，或者在容器中单击鼠标、拖动鼠标时都会发生鼠标事件。java语言为处理鼠标事件提供两个接口：MouseListener，MouseMotionListener接口。</p>
+<p><strong>鼠标点击事件示例：</strong></p>
+<p>点击按钮更改按钮文字</p>
+</li>
+</ul>
+<blockquote>
+<pre><code>import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.util.Random;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
+public class TestGUI {
+    public static void main(String[] args) {
+        JFrame f = new JFrame(&quot;LoL&quot;);
+        f.setSize(400, 300);
+        f.setLocation(200, 200);
+        f.setLayout(null);
+        JButton b = new JButton(&quot;确定&quot;);
+        b.setBounds(50, 50, 280, 30);
+        f.add(b);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setVisible(true);
+        //给按钮添加一个鼠标点击事件
+        b.addMouseListener(new MouseListener() {
+            // 释放鼠标
+            public void mouseReleased(MouseEvent e) {
+
+            }
+            // 按下鼠标
+            public void mousePressed(MouseEvent e) {
+
+            }
+            // 鼠标退出
+            public void mouseExited(MouseEvent e) {
+
+            }
+            // 鼠标进入
+            public void mouseEntered(MouseEvent e) {
+
+            }
+            // 按下释放组合动作为点击鼠标
+            public void mouseClicked(MouseEvent e) {
+                b.setText(&quot;取消&quot;);
+            }
+        });
+    }
+}
+</code></pre>
+
+</blockquote>
+<h3>组件：</h3>
+<ul>
+<li>
+<p><strong>什么是组件</strong></p>
+<p>件构成图形界面零部件面板按钮下拉选等等,具有图形界面，并能完成一定功能的封装体。</p>
+<p>Swing 的整个可视组件库的基础构造块是 JComponent。它是所有组件的父类。它是一个抽象类，所以不能创建 JComponent对象，但是作为类层次结构的结果，从字面意义来说它包含了数百个函数，Swing 中的每个组件都可以使用这些函数。</p>
+<p>我们上面两个例子中都有一个按钮，这个按钮其实就是一个按钮组件（JButton）。他是Swing中的基本动作组件，是与每个窗口中都能看到的 确定（OK） 和 退出（Cancel） 一样的按钮；这些按钮所做的正是你 希望它们做的工作 ——在单击它们之后，将发生一些事情。到底会发生什么呢？必须定义发生的内容（这个就是事件处理）。</p>
+</li>
+</ul>
+<p><img src="http://opoh7f0qc.bkt.clouddn.com/javaSwing2.jpeg" alt="image" /></p>
+<p><strong>用来改变 JButton 属性的方法：</strong></p>
+<p>setText()在上个例子中已经出现过了，这里也不再举例</p>
+<pre><code>1. get/setText(): 获取/设置标签的文本。
+2. get/seticon(): 获取/设置标签的图片。
+3. get/setHorizontalAlignment(): 获取/设置文本的水平位置。
+4. get/setVerticalAlignment(): 获取/设置文本的垂直位置。
+5. get/setDisplayedMnemonic(): 获取/设置访问键（下划线字符），与 Alt 按钮组合时，造成按钮单击。
+</code></pre>
+
+<p><strong>JButton 上的状态方法是：</strong></p>
+<pre><code>1. get/setDisabledIcon()
+2. get/setDisableSelectedIcon()
+3. get/setIcon()
+4. get/setPressedIcon()
+5. get/setRolloverIcon()
+6. get/setRolloverSelectedIcon()
+7. get/setSelectedIcon()
+</code></pre>
+
+<p>Swing 组件主要为文本处理、按钮、标签、列表、pane、组合框、滚动条、滚动 pane、菜单、表格和树提供了组件。</p>
+<pre><code>1. JApplet Java.applet.Applet类的扩展，它含有JRootPane的一个实例
+2. JButton 能显示文本和图形的按钮，它是AWT按钮组件的替代组件
+3. JCheckBox 能显示文本和图形的复选框，它是AWT选择组件的替代组件
+4. JCheckBoxMenuItem 一个复选框菜单项，它是AWT的复选框菜单项组件的替代组件
+5. JComboBox 带下拉列表的文本框，它是AWT选择组件的替代组件
+6. JComponent 所有轻量J组件的基类
+7. JDesktopPane 内部窗体的容器
+8. JDialog　Swing对话框的基类，它扩展了AWT Dialot类
+9. JEditorPane 用于编辑文本的文本窗格
+10. JFrame 扩展java.awt.Frame的外部窗体
+11. JInternalFrame 在JDesktopPane中出现的内部窗体
+12. JLabel 可显示文本和图标的标签，它是AWT标签组件的替代组件
+13. JLayeredPane 能够在不同层上显示组件的容器
+14. JList 显示选项列表的组件，它是AWT列表组件的替代组件
+15. JMenu 菜单条中显示的一个菜单，它是AWT菜单组件的替代组件
+16. JMenuBar 用于显示菜单的菜单条，它是AWT菜单条组件的替代组件
+17. JMenuItem 菜单项，它是AWT菜单项组件的替代组件
+18. JOptionPane 显示标准的对话框，如：消息和问题对话框
+19. JPanel 通用容器，它是AWT面板和画布组件的替代组件
+20. JPasswordfield JTextField的扩展，使输入的字符不可见
+21. JPopupMenu 弹出式菜单，它是AWT弹出式菜单组件的替代组件
+22. JProgressBar 进度指示器
+23. JRadioButton 单选按钮，它是AWT复选框组件的替代组件
+24. JRootPane 顶层容器，它包含一个玻璃窗格，一个层窗格，一个内容窗格和一个可选的菜单条
+25. JScrollBar 滚动条，它是AWT滚动条组件的替代组件
+26. JScrollPane 滚动窗格，它是AWT滚动窗格组件的替代组件
+27. JSeparator 水平或垂直分隔条
+28. JSlider 滑杆
+29. JSplitPane 有两个分隔区的容器，这两个分隔区可以水平排列或者垂直排列且分隔区的大小能自动调整
+30. JTabbedPane 带选项卡的窗格
+31. JTable 表格
+32. JTableHeader 表格头
+33. JTextArea 用于输入多行文本的文本域，它是AWT文本域组件的替代组件
+34. JTestComponent 文本组件的基类，它替代AWT的TextComponent类
+35. JTextField 单行文本域，它替代AWT的单行文本域组件
+36. JTextPane 简单的文本编辑器
+37. JToggleButton 两种状态的按钮，它是JCheckBox和JRadioButton组件的基类
+38. JToolBar 工具条
+39. JToolTip 当光标停留在一个组件上时，该组件上显示的一行文字
+40. JTree 用于按钮层次组织数据的结构控件
+41. JViesport 用于浏览可滚动组件的视口
+42. JWindow 外部窗口，它是java.awt.Window的扩展
+</code></pre>
+
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
